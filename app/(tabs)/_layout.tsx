@@ -26,10 +26,21 @@ export default function TabsLayout() {
       screenOptions={{
         tabBarActiveTintColor: colors.icon.interactive.active,
         tabBarInactiveTintColor: colors.icon.interactive.inactive,
-        headerStyle: { backgroundColor: colors.card.background },
-        headerTintColor: colors.text.heading,
-        tabBarStyle: { backgroundColor: colors.card.background },
+        tabBarStyle: {
+          backgroundColor: colors.card.background,
+          borderRadius: 60,
+          margin: 10,
+          height: 80,
+          position: 'absolute',
+          bottom: 10,
+          left: 10,
+          right: 10,
+          paddingBottom: 10,
+          justifyContent: 'center',
+          alignItems: 'center',
+        },
         tabBarShowLabel: false,
+        headerShown: false
       }}
     >
       {/* Dashboard */}
@@ -38,7 +49,7 @@ export default function TabsLayout() {
         options={{
           title: 'Dashboard',
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="home" color={color} size={size} />
+            <Ionicons name="home" color={color} size={26} /> // TODO: home icon verschieben, siehe mobile
           ),
         }}
       />

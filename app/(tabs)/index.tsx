@@ -1,35 +1,20 @@
-import { StyleSheet, Text, View } from 'react-native';
-import { colors, fonts } from '../../theme';
+import { Text, View } from 'react-native';
+import { globalStyles } from '../../theme';
 
 export default function Dashboard() {
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.heading}>Dashboard</Text>
-      <Text style={styles.text}>Hier kommt dein Inhalt hin.</Text>
+    <View style={globalStyles.container}>
+      <View style={globalStyles.card}>
+        <Text style={globalStyles.heading}>Dashboard</Text>
+        <Text style={globalStyles.text}>Hier kommt dein Inhalt hin.</Text>
+      </View>
+
+      <View style={globalStyles.card}>
+        <Text style={globalStyles.heading}>Weitere Karte</Text>
+        <Text style={globalStyles.text}>Noch mehr Inhalt.</Text>
+      </View>
     </View>
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.background,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-  },
-
-  heading: {
-    fontFamily: fonts.family.heading,
-    fontSize: fonts.size.xl,
-    color: colors.text.heading,
-    marginBottom: 20,
-  },
-
-  text: {
-    fontFamily: fonts.family.text,
-    fontSize: fonts.size.m,
-    color: colors.text.body,
-  },
   
-});
+}
