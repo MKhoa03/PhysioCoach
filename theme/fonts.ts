@@ -1,7 +1,7 @@
 export const fonts = {
     
   family: {
-    heading: 'Nunito-Sans-Bold',
+    heading: 'Nunito-Bold',
     text: 'Lato-Regular',
     button: 'Nunito-SemiBold',
   },
@@ -15,4 +15,5 @@ export const fonts = {
     xl: 32,
     xxl: 40,
   },
+  
 };

@@ -31,4 +31,5 @@ const styles = StyleSheet.create({
     fontSize: fonts.size.m,
     color: colors.text.body,
   },
+  
 });

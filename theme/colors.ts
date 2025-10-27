@@ -19,4 +19,5 @@ export const colors = {
         background: '#eaeaea',
         foreground: '#ffffff'
     }
+    
 };
