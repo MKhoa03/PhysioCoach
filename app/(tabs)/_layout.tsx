@@ -29,15 +29,12 @@ export default function TabsLayout() {
         tabBarStyle: {
           backgroundColor: colors.card.background,
           borderRadius: 60,
+          marginHorizontal: 20,
           margin: 10,
           height: 80,
           position: 'absolute',
-          bottom: 10,
-          left: 10,
-          right: 10,
-          paddingBottom: 10,
-          justifyContent: 'center',
-          alignItems: 'center',
+          paddingHorizontal: 20,
+          paddingTop: 20
         },
         tabBarShowLabel: false,
         headerShown: false
@@ -48,11 +45,45 @@ export default function TabsLayout() {
         name="index"
         options={{
           title: 'Dashboard',
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="home" color={color} size={26} /> // TODO: home icon verschieben, siehe mobile
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="home" color={color} size={30} />
           ),
         }}
       />
+
+      {/* Symptom-Suche */}
+      <Tabs.Screen
+        name="symptoms"
+        options={{
+          title: 'Symptom-Suche',
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="search" color={color} size={30} />
+          ),
+        }}
+      />
+
+      {/* Favoriten */}
+      <Tabs.Screen
+        name="favorites"
+        options={{
+          title: 'Favoriten',
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="bookmark" color={color} size={30} />
+          ),
+        }}
+      />
+
+      {/* Einstellungen */}
+      <Tabs.Screen
+        name="settings"
+        options={{
+          title: 'Einstellungen',
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="settings" color={color} size={30} />
+          ),
+        }}
+      />
+      
     </Tabs>
   );
 

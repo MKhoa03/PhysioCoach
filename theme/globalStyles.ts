@@ -1,7 +1,9 @@
-import { colors, fonts } from './index';
+import { StyleSheet } from 'react-native';
+import { colors } from './colors';
+import { fonts } from './fonts';
 
 
-export const globalStyles = {
+export const globalStyles = StyleSheet.create({
 
   container: {
     flex: 1,
@@ -9,15 +11,27 @@ export const globalStyles = {
     backgroundColor: colors.background,
   },
 
-  heading: {
+  titleContainer: {
+    margin: 40,
+    marginBottom: 50,
+    alignItems: 'center',
+  },
+
+  title: {
     fontFamily: fonts.family.heading,
     fontSize: fonts.size.xl,
     color: colors.text.heading,
   },
 
+  heading: {
+    fontFamily: fonts.family.heading,
+    fontSize: fonts.size.l,
+    color: colors.text.heading,
+  },
+
   text: {
     fontFamily: fonts.family.text,
-    fontSize: fonts.size.m,
+    fontSize: fonts.size.s,
     color: colors.text.body,
   },
 
@@ -36,4 +50,4 @@ export const globalStyles = {
     justifyContent: 'center',
   },
 
-};
+});
