@@ -5,6 +5,7 @@ export const colors = {
     text: {
         heading: '#545454',
         body: '#a6a6a6',
+        button: '#ffffff'
     },
 
     icon: {

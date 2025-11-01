@@ -23,6 +23,13 @@ export const globalStyles = StyleSheet.create({
     color: colors.text.heading,
   },
 
+  subtitle: {
+    fontFamily: fonts.family.text,
+    fontSize: fonts.size.m,
+    color: colors.text.body,
+    marginTop: 10,
+  },
+
   heading: {
     fontFamily: fonts.family.heading,
     fontSize: fonts.size.l,
@@ -36,9 +43,17 @@ export const globalStyles = StyleSheet.create({
   },
 
   button: {
+    backgroundColor: colors.icon.interactive.active,
+    borderRadius: 60,
+    padding: 20,
+    marginTop: 10,
+    alignItems: 'center',
+  },
+
+  buttonText: {
     fontFamily: fonts.family.button,
     fontSize: fonts.size.m,
-    color: colors.text.body,
+    color: colors.text.button,
   },
 
   card: {
@@ -50,4 +65,26 @@ export const globalStyles = StyleSheet.create({
     justifyContent: 'center',
   },
 
+  cardForeground: {
+    backgroundColor: colors.card.foreground,
+    borderRadius: 45,         
+    padding: 15,
+    width: '98%',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  textInput: {
+    width: '98%',
+    padding: 10,
+    backgroundColor: colors.card.foreground,
+    borderRadius: 45,
+    borderWidth: 0,         
+    borderColor: 'transparent',
+    textAlign: 'center',
+    fontFamily: fonts.family.text,
+    fontSize: fonts.size.s,
+    color: colors.text.body,
+  }
+  
 });

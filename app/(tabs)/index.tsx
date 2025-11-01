@@ -1,13 +1,28 @@
-import { router } from "expo-router";
-import { useEffect } from "react";
-
+import { Text, View } from 'react-native';
+import { globalStyles } from '../../theme';
 
 export default function Dashboard() {
 
-  useEffect(() => {
-    router.push("/splash"); // wechselt auf Splash
-  }, []);
-  return null;
+  return (
 
+    <View style={globalStyles.container}>
+  
+      <View style={globalStyles.titleContainer}>
+        <Text style={globalStyles.title}>Hallo, Lisa!</Text>
+      </View>
+
+      <View style={globalStyles.card}>
+        <Text style={globalStyles.heading}>Dashboard</Text>
+        <Text style={globalStyles.text}>Hier kommt dein Inhalt hin.</Text>
+      </View>
+
+      <View style={globalStyles.card}>
+        <Text style={globalStyles.heading}>Weitere Karte</Text>
+        <Text style={globalStyles.text}>Noch mehr Inhalt.</Text>
+      </View>
+
+    </View> 
+
+  );
   
 }

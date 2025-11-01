@@ -22,6 +22,7 @@ export default function TabsLayout() {
   }
 
   return (
+
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: colors.icon.interactive.active,
@@ -40,6 +41,7 @@ export default function TabsLayout() {
         headerShown: false
       }}
     >
+      
       {/* Dashboard */}
       <Tabs.Screen
         name="index"
