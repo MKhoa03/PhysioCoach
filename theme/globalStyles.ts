@@ -28,6 +28,7 @@ export const globalStyles = StyleSheet.create({
     fontSize: fonts.size.m,
     color: colors.text.body,
     marginTop: 10,
+    textAlign: 'center',
   },
 
   heading: {
@@ -42,11 +43,29 @@ export const globalStyles = StyleSheet.create({
     color: colors.text.body,
   },
 
+  loginButton: {
+    backgroundColor: colors.icon.interactive.active,
+    borderRadius: 45,
+    padding: 15,
+    margin: 50,
+    marginTop: 80,
+    alignItems: 'center',
+  },
+
+  signupButton: {
+    backgroundColor: colors.icon.interactive.active,
+    borderRadius: 45,
+    padding: 15,
+    margin: 50,
+    marginTop: 40,
+    alignItems: 'center',
+  },
+
   button: {
     backgroundColor: colors.icon.interactive.active,
-    borderRadius: 60,
-    padding: 20,
-    marginTop: 10,
+    borderRadius: 45,
+    padding: 15,
+    margin: 40,
     alignItems: 'center',
   },
 
@@ -58,7 +77,7 @@ export const globalStyles = StyleSheet.create({
 
   card: {
     backgroundColor: colors.card.background,
-    borderRadius: 60,         
+    borderRadius: 45,         
     padding: 20,
     marginVertical: 10,
     alignItems: 'center',
@@ -67,7 +86,7 @@ export const globalStyles = StyleSheet.create({
 
   cardForeground: {
     backgroundColor: colors.card.foreground,
-    borderRadius: 45,         
+    borderRadius: 30,         
     padding: 15,
     width: '98%',
     alignItems: 'center',
@@ -76,11 +95,7 @@ export const globalStyles = StyleSheet.create({
 
   textInput: {
     width: '98%',
-    padding: 10,
     backgroundColor: colors.card.foreground,
-    borderRadius: 45,
-    borderWidth: 0,         
-    borderColor: 'transparent',
     textAlign: 'center',
     fontFamily: fonts.family.text,
     fontSize: fonts.size.s,

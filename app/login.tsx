@@ -1,7 +1,10 @@
+import { useRouter } from 'expo-router';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
-import { globalStyles } from '../theme';
+import { colors, globalStyles } from '../theme';
 
 export default function Login() {
+
+  const router = useRouter();
 
   return (
 
@@ -16,6 +19,7 @@ export default function Login() {
         <View style={globalStyles.cardForeground}>
           <TextInput
             placeholder="E-Mail"
+            placeholderTextColor={colors.text.body}
             style={globalStyles.textInput}
             keyboardType="email-address"
           />
@@ -26,15 +30,24 @@ export default function Login() {
         <View style={globalStyles.cardForeground}>
           <TextInput
             placeholder="Passwort"
+            placeholderTextColor={colors.text.body}
             style={globalStyles.textInput}
             secureTextEntry={true}
           />
         </View>
       </View>
 
-      <TouchableOpacity style={globalStyles.button}>
+      <TouchableOpacity style={globalStyles.loginButton}>
         <Text style={ globalStyles.buttonText }>Anmelden</Text>
       </TouchableOpacity>
+
+      <View style={{ alignItems: 'center', marginTop: 40 }}>
+        <Text style={globalStyles.text}>Du hast noch kein Konto? </Text>
+        <Text
+          style={[globalStyles.text, { color: colors.icon.interactive.active }]}
+          onPress={() => router.push('/signup')}
+        >Hier registrieren</Text>
+      </View>
 
     </View>
 
