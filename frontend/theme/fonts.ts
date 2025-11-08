@@ -7,13 +7,12 @@ export const fonts = {
   },
 
   size: {
-    xxs: 12,
-    xs: 15,
+    xxs: 14,
+    xs: 16,
     s: 18,
-    m: 22,
-    l: 26,
+    m: 20,
+    l: 22,
     xl: 32,
-    xxl: 40,
   },
   
 };

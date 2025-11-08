@@ -1,21 +1,33 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 import { colors } from './colors';
 import { fonts } from './fonts';
+import { wp, hp } from './responsive';
 
 
 export const globalStyles = StyleSheet.create({
 
+  /* ========= LAYOUT ========= */
+
   container: {
     flex: 1,
-    padding: 20,
     backgroundColor: colors.background,
+    paddingHorizontal: wp(5),
+    justifyContent: 'center',  
+  },
+
+  logoContainer: {
+    width: '100%',
+    alignItems: 'flex-end',
   },
 
   titleContainer: {
-    margin: 40,
-    marginBottom: 50,
-    alignItems: 'center',
+    alignItems: 'flex-start',
+    marginLeft: wp(5),
+    marginTop: hp(1),
+    marginBottom: hp(3),
   },
+
+  /* ========= TYPOGRAPHY ========= */
 
   title: {
     fontFamily: fonts.family.heading,
@@ -27,8 +39,7 @@ export const globalStyles = StyleSheet.create({
     fontFamily: fonts.family.text,
     fontSize: fonts.size.m,
     color: colors.text.body,
-    marginTop: 10,
-    textAlign: 'center',
+    marginTop: hp(1),
   },
 
   heading: {
@@ -43,31 +54,7 @@ export const globalStyles = StyleSheet.create({
     color: colors.text.body,
   },
 
-  loginButton: {
-    backgroundColor: colors.icon.interactive.active,
-    borderRadius: 45,
-    padding: 15,
-    margin: 50,
-    marginTop: 80,
-    alignItems: 'center',
-  },
-
-  signupButton: {
-    backgroundColor: colors.icon.interactive.active,
-    borderRadius: 45,
-    padding: 15,
-    margin: 50,
-    marginTop: 40,
-    alignItems: 'center',
-  },
-
-  button: {
-    backgroundColor: colors.icon.interactive.active,
-    borderRadius: 45,
-    padding: 15,
-    margin: 40,
-    alignItems: 'center',
-  },
+  /* ========= BUTTONS ========= */
 
   buttonText: {
     fontFamily: fonts.family.button,
@@ -75,39 +62,64 @@ export const globalStyles = StyleSheet.create({
     color: colors.text.button,
   },
 
+  button: {
+    backgroundColor: colors.icon.interactive.active,
+    borderRadius: 45,
+    paddingVertical: hp(1.8),
+    marginHorizontal: wp(8),
+    alignItems: 'center',
+  },
+
+  forgotPassword: {
+    marginTop: hp(1.2),
+    color: colors.icon.interactive.active,
+    textAlign: 'center',
+    fontSize: fonts.size.xs,
+  },
+
+  /* ========= CARDS & INPUTS ========= */
+
   card: {
     backgroundColor: colors.card.background,
     borderRadius: 45,         
-    padding: 20,
-    marginVertical: 10,
+    padding: wp(4),
+    marginVertical: hp(1),
     alignItems: 'center',
     justifyContent: 'center',
   },
 
   cardForeground: {
     backgroundColor: colors.card.foreground,
-    borderRadius: 30,         
-    padding: 15,
+    borderRadius: 30,
+    padding: wp(2),
     width: '98%',
     alignItems: 'center',
     justifyContent: 'center',
   },
 
-  textInput: {
-    width: '98%',
-    backgroundColor: colors.card.foreground,
-    textAlign: 'center',
-    fontFamily: fonts.family.text,
-    fontSize: fonts.size.s,
-    color: colors.text.body,
+  inputContainer: {
+    flexDirection: 'row',   
+    alignItems: 'center',
+    width: '100%',
   },
+
+  textInput: {
+    flex: 1,
+    backgroundColor: colors.card.foreground,
+    paddingVertical: hp(1.2),
+    paddingHorizontal: wp(3),
+    fontFamily: fonts.family.text,
+    fontSize: fonts.size.xs,
+    color: colors.text.body,
+    textAlign: 'center',
+  },
+
+  /* ========= LOGO ========= */
     
   logo: {
-    position: 'absolute',
-    top: 40,
-    right: 20,
-    width: 60,
-    height: 60,
-  }
+    width: wp(26),
+    height: wp(26),
+    resizeMode: "contain",
+  },
   
 });

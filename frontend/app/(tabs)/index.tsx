@@ -1,17 +1,10 @@
 import { useRouter } from 'expo-router';
-import { useEffect } from 'react';
 import { Text, View } from 'react-native';
 import { globalStyles } from '../../theme';
 
 export default function Dashboard() {
 
   const router = useRouter();
-
-  useEffect(() => {
-    setTimeout(() => {
-      router.replace('/login'); // Weiterleitung zum Login
-    }, 2000); // nach 2 Sekunden
-  }, []);
 
   return (
 
