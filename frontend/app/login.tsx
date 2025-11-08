@@ -140,8 +140,8 @@ export default function Login() {
         <Text style={globalStyles.buttonText}>Anmelden</Text>
       </TouchableOpacity>
 
-      {/* === Passwort vergessen === */}
-      <TouchableOpacity onPress={() => router.push('/')}>
+        {/* === Passwort vergessen === */}
+        <TouchableOpacity onPress={() => router.push('/')}>
         <Text style={globalStyles.forgotPassword}>Passwort vergessen?</Text>
       </TouchableOpacity>
 
