@@ -6,11 +6,44 @@ import { Ionicons } from '@expo/vector-icons';
 import { colors, fonts, globalStyles } from '../theme';
 import { wp, hp } from '../theme/responsive';
 
+import {API_URL} from "../config";
+
+
 
 export default function Signup() {
+  const [email, setEmail] = useState("");
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
 
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
+
+  async function handleSignup() {
+    try {
+      const response = await fetch(`${API_URL}/api/users/register`, {
+        method: "POST",
+        headers : {"Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: userName,
+          email: email,
+          password: password,
+        }),
+      });
+
+      const data = await response.json();
+
+      if(response.ok){
+        alert("Registrierung erfolgreich");
+        router.push("/login");
+      } else {
+        alert("Registrierung fehlgeschlagen");
+      }
+
+    } catch(err){
+      console.error(err);
+      alert("Server nicht erreichbar");
+    }
+  }
 
   return (
 
@@ -46,7 +79,9 @@ export default function Signup() {
               placeholderTextColor={colors.text.body}
               style={[globalStyles.textInput, { textAlign: 'left' }]}
               keyboardType="default"
-            />
+              value ={userName}
+              onChangeText={setUserName}
+          />
           </View>
         </View>
       </View>
@@ -66,7 +101,9 @@ export default function Signup() {
               placeholderTextColor={colors.text.body}
               style={[globalStyles.textInput, { textAlign: 'left' }]}
               keyboardType="email-address"
-            />
+              value={email}
+              onChangeText={setEmail}
+          />
           </View>
         </View>
       </View>
@@ -86,7 +123,9 @@ export default function Signup() {
               placeholderTextColor={colors.text.body}
               style={[globalStyles.textInput, { textAlign: 'left' }]}
               secureTextEntry={!showPassword}
-            />
+              value={password}
+              onChangeText={setPassword}
+          />
           </View>
         </View>
       </View>

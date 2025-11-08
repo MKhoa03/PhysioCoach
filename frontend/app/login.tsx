@@ -1,6 +1,5 @@
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
-import { Dimensions } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -11,7 +10,37 @@ import { wp, hp } from '../theme/responsive';
 export default function Login() {
 
   const router = useRouter();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+
+  async function handleLogin() {
+    if(!email || !password){
+      alert("Bitte Email und Passwort eingeben!");
+      return;
+    }
+    
+    try {
+      const response = await fetch (`{API_URL}/api/users/login`, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+          email,
+          password
+        }),
+      });
+
+      if(response.ok){
+        router.push("/(tabs)/settings");
+      } else {
+        alert("Login Fehlgeschlagen");
+      }
+    } catch (err) {
+      console.log(err);
+      alert("Server nicht erreichbar");
+    }
+  }
 
   return (
 
@@ -47,7 +76,10 @@ export default function Login() {
               placeholderTextColor={colors.text.body}
               style={globalStyles.textInput}
               keyboardType="email-address"
-            />
+              value={email}
+              onChangeText={setEmail}
+
+          />
           </View>
         </View>
       </View>
@@ -67,7 +99,9 @@ export default function Login() {
               placeholderTextColor={colors.text.body}
               style={globalStyles.textInput}
               secureTextEntry={!showPassword}
-            />
+              value={password}
+              onChangeText={setPassword}
+          />
           </View>
         </View>
       </View>
@@ -102,12 +136,12 @@ export default function Login() {
       </TouchableOpacity>
 
       {/* === Anmelden Button === */}
-      <TouchableOpacity style={[globalStyles.button, {marginTop: hp(9)}]}>
+      <TouchableOpacity style={[globalStyles.button, {marginTop: hp(9)}]} onPress={handleLogin}>
         <Text style={globalStyles.buttonText}>Anmelden</Text>
       </TouchableOpacity>
 
       {/* === Passwort vergessen === */}
-      <TouchableOpacity onPress={() => router.push('/forgot-password')}>
+      <TouchableOpacity onPress={() => router.push('/')}>
         <Text style={globalStyles.forgotPassword}>Passwort vergessen?</Text>
       </TouchableOpacity>
 
