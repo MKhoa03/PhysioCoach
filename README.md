@@ -6,6 +6,8 @@ cd frontend
 npm install
 ```
 
+> **Hinweis:** Eventuell muss man Visual Studio Code schließen und wieder öffnen.
+
 ## App starten
 Um die App zu starten, in den Frontend-Ordner  und "npx expo start" ausführen:
 
