@@ -1,5 +1,5 @@
 ## Installation nach dem Klonen
-Nach dem Klonen des Projekts müssen die Abhängigkeiten für das **Frontend** installiert werden. Dafür in den "Frontend"-Ordner wechseln und "npm install" ausführen:
+Nach dem Klonen des Projekts müssen die Abhängigkeiten für das **Frontend** installiert werden. Dafür in den Frontend-Ordner wechseln und "npm install" ausführen:
 
 ```bash
 cd frontend
