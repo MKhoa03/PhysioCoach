@@ -39,6 +39,7 @@ export const globalStyles = StyleSheet.create({
     fontFamily: fonts.family.text,
     fontSize: fonts.size.m,
     color: colors.text.body,
+    lineHeight: 30,
     marginTop: hp(1),
   },
 
