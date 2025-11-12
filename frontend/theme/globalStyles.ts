@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { colors } from './colors';
 import { fonts } from './fonts';
 import { wp, hp } from './responsive';
@@ -114,6 +114,43 @@ export const globalStyles = StyleSheet.create({
     color: colors.text.body,
     textAlign: 'center',
   },
+
+  /* ==== WEEK TRACKER ==== */
+
+  weekTrackerContainer: {
+    marginVertical: hp(2),
+    width: '90%',
+  },
+
+  weekTrackerCirclesContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+
+  weekTrackerDayContainer: {
+    alignItems: 'center',
+  },
+
+  weekTrackerCircle: {
+    width: wp(8),      
+    height: wp(8),
+    borderRadius: wp(5),
+    borderWidth: 0,
+    backgroundColor: colors.icon.decorative,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: hp(0.5),
+  },
+
+  weekTrackerCheckmark: {
+    color: '#FFFFFF',
+    fontWeight: 'bold',
+  },
+
+  weekTrackerDayText: {
+    fontSize: fonts.size.xs,
+    color: colors.icon.decorative,
+},
 
   /* ========= LOGO ========= */
     

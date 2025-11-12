@@ -39,9 +39,9 @@ export default function Welcome() {
 
       <Text
         style={[globalStyles.text, { marginTop: 20, alignSelf: 'center' , color: colors.icon.interactive.active, fontSize: fonts.size.xs }]}
-        onPress={() => router.push('/splash')}
+        onPress={() => router.push('/(tabs)')}
       >
-        Hier zum Splash
+        Hier zum Dashboard
       </Text>
 
     </View>
