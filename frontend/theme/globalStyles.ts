@@ -55,6 +55,14 @@ export const globalStyles = StyleSheet.create({
     color: colors.text.body,
   },
 
+  tipText: {
+    fontFamily: fonts.family.button,
+    fontSize: fonts.size.s,
+    color: colors.icon.decorative,
+    margin: hp(2),
+    textAlign: 'center',
+  },
+
   /* ========= BUTTONS ========= */
 
   buttonText: {
