@@ -2,6 +2,7 @@ import { Text, View, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { globalStyles, colors } from '../../theme';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import WeekTracker from '../../components/WeekTracker';
+import { wp, hp } from '../../theme/responsive';
 
 export default function Dashboard() {
 
@@ -18,7 +19,7 @@ export default function Dashboard() {
   return (
 
   <SafeAreaView style={globalStyles.container}>
-      <ScrollView contentContainerStyle={{ paddingBottom: 120 }} >
+      <ScrollView contentContainerStyle={{ paddingBottom: hp(18) }} >
   
         <View style={[globalStyles.titleContainer, {alignItems: 'center', marginLeft: 0}]}>
           <Text style={globalStyles.title}>Hallo, Lisa!</Text>
@@ -37,10 +38,10 @@ export default function Dashboard() {
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <Image
               source={require('../../assets/images/placeholder.png')}
-              style={{ width: 120, height: 90, borderRadius: 10, margin: 15 }}
+              style={{ width: wp(32), height: hp(14), borderRadius: wp(3), margin: wp(4) }}
             />
 
-            <View style={{ flex: 1, gap: 4 }}>
+            <View style={{ flex: 1, gap: hp(0.5) }}>
               <Text style={globalStyles.text}>Schulter-Dehnung</Text>
               <Text style={globalStyles.text}>Dauer: 5 Min.</Text>
               <Text style={globalStyles.text}>Montag, 07. Oktober</Text>
@@ -48,7 +49,7 @@ export default function Dashboard() {
           </View>
 
           <TouchableOpacity
-              style={[globalStyles.button, { marginBottom: 8, paddingVertical: 8, paddingHorizontal: 25 }]}
+              style={[globalStyles.button, { marginBottom: hp(1.2), paddingVertical: hp(1.2), paddingHorizontal: wp(7) }]}
               onPress={() => console.log('Fortsetzen gedrückt')}
             >
               <Text style={globalStyles.buttonText}>Hier fortsetzen</Text>
