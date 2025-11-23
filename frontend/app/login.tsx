@@ -78,8 +78,7 @@ export default function Login() {
               keyboardType="email-address"
               value={email}
               onChangeText={setEmail}
-
-          />
+            />
           </View>
         </View>
       </View>
