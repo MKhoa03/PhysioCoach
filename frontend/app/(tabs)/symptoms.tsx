@@ -1,9 +1,10 @@
 import React from 'react';
-import { Text, View, ScrollView, TextInput } from 'react-native';
+import { Text, View, ScrollView, TextInput, TouchableOpacity } from 'react-native';
 import { globalStyles, colors } from '../../theme';
 import { Ionicons } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { wp, hp } from '../../theme/responsive';
+import { router } from 'expo-router';
 
 export default function Symptoms() {
 
@@ -40,19 +41,26 @@ export default function Symptoms() {
           Oder wähle einen Bereich, um {'\n'} passende Videos zu sehen.
         </Text>
 
-        <View style={[globalStyles.card, {padding: wp(7), marginBottom: hp(2)}]}>
-          <Text style={globalStyles.text}>Beine & Knie</Text>
-        </View>
+        <TouchableOpacity onPress={() => router.push('../area/beine-knie')}>
+          <View style={[globalStyles.card, {padding: wp(7), marginBottom: hp(2)}]}>
+            <Text style={globalStyles.text}>Beine & Knie</Text>
+          </View>
+        </TouchableOpacity>
 
-        <View style={[globalStyles.card, {padding: wp(7), marginBottom: hp(2)}]}>
-          <Text style={globalStyles.text}>Schultern & Arme</Text>
-        </View>
+        <TouchableOpacity onPress={() => router.push('../area/schultern-arme')}>
+          <View style={[globalStyles.card, {padding: wp(7), marginBottom: hp(2)}]}>
+            <Text style={globalStyles.text}>Schultern & Arme</Text>
+          </View>
+        </TouchableOpacity>
 
-        <View style={[globalStyles.card, {padding: wp(7), marginBottom: hp(2)}]}>
-          <Text style={globalStyles.text}>Rücken & Nacken</Text>
-        </View>
+        <TouchableOpacity onPress={() => router.push('../area/ruecken-nacken')}>
+          <View style={[globalStyles.card, {padding: wp(7), marginBottom: hp(2)}]}>
+            <Text style={globalStyles.text}>Rücken & Nacken</Text>
+          </View>
+        </TouchableOpacity>
 
       </ScrollView>
+      <View style={{ height: 70, backgroundColor: colors.background }} />
     </SafeAreaView>
     
   );
