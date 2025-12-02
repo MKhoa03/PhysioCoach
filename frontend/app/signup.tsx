@@ -5,7 +5,6 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { colors, fonts, globalStyles } from '../theme';
 import { wp, hp } from '../theme/responsive';
-
 import {API_URL} from "../config";
 
 
@@ -159,7 +158,7 @@ export default function Signup() {
       </TouchableOpacity>
 
       {/* === Registrieren Button === */}
-      <TouchableOpacity style={[globalStyles.button, {marginTop: hp(5)}]}>
+      <TouchableOpacity style={[globalStyles.button, {marginTop: hp(5)}]} onPress={handleSignup}>
         <Text style={globalStyles.buttonText}>Registrieren</Text>
       </TouchableOpacity>
 

@@ -39,7 +39,7 @@ app.post("/api/users/register", async (req, res) => {
     }
 });
 
-app.post("api/users/login", async (req, res) => {
+app.post("/api/users/login", async (req, res) => {
     const {email, password} = req.body
 
     try {
