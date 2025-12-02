@@ -5,6 +5,8 @@ import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { colors, fonts, globalStyles } from '../theme';
 import { wp, hp } from '../theme/responsive';
+import { API_URL } from "../config"; 
+
 
 
 export default function Login() {
@@ -22,7 +24,7 @@ export default function Login() {
     }
     
     try {
-      const response = await fetch (`{API_URL}/api/users/login`, {
+      const response = await fetch(`${API_URL}/api/users/login`, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({
