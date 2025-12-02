@@ -1,62 +1,48 @@
-import { ScrollView, Text, View, TouchableOpacity, Image } from "react-native";
+import { ScrollView, Text, View, Image, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { globalStyles, colors } from "../../theme";
-import { router } from "expo-router";
-import { hp, wp } from "../../theme/responsive";
+import { exercises } from "../../data/exercises";
+import { useRouter } from "expo-router";
+import { wp, hp } from "../../theme/responsive";
 
 export default function BeineKnie() {
     
-    // Beispiel-Übungen (ohne Video)
-    const exercises = [
-        {
-            title: "Knie Mobilisation",
-            duration: "6 Min",
-            thumbnail: require("../../assets/images/placeholder.png")
-        },
-        {
-            title: "Oberschenkel-Dehnung",
-            duration: "4 Min",
-            thumbnail: require("../../assets/images/placeholder.png")
-        },
-    ];
+    const router = useRouter();
+    const list = exercises.filter(ex => ex.area === "beine-knie");
 
     return (
         <SafeAreaView style={globalStyles.container}>
             <ScrollView contentContainerStyle={{ paddingBottom: hp(18) }}>
 
-                {/* Titel */}
-                <View style={[globalStyles.titleContainer, { alignItems: "center", marginLeft: 0 }]}>
-                    <Text style={globalStyles.title}>Videos zu &quot;Beine & Knie&quot;</Text>
-                </View>
+                <Text style={[ globalStyles.title, {margin: wp(4), textAlign: 'center'} ]}>Ergebnisse für {"\n"} &quot;Beine & Knie&quot;</Text>
 
-                {/* Übungen */}
-                {exercises.map((item, index) => (
+                {list.map((exercise) => (
                     <TouchableOpacity
-                    key={index}
-                    onPress={() =>
-                    router.push({
-                        pathname: "/exerciseDetail",
-                        params: { title: item.title, duration: item.duration },
-                    })
-                    }
+                        key={exercise.id}
+                        style={globalStyles.card}
+                        onPress={() =>
+                        router.push({
+                            pathname: "/exerciseDetail",
+                            params: {
+                            title: exercise.title,
+                            duration: exercise.duration,
+                            thumbnail: exercise.thumbnail,
+                            description: exercise.description,
+                            },
+                        })
+                        }
                     >
-                        <View style={globalStyles.card}>
-                            <View style={{ flexDirection: "row", alignItems: "center", gap: wp(4) }}>
-                                
-                                <Image
-                                source={item.thumbnail}
-                                style={{
-                                    width: wp(25),
-                                    height: hp(12),
-                                    borderRadius: 10,
-                                }}
-                                />
+                        <View style={[globalStyles.cardForeground, { alignItems: 'center' }]}>
+                            <Text style={globalStyles.heading}>{exercise.title}</Text>
 
-                                <View style={{ flex: 1 }}>
-                                    <Text style={globalStyles.heading}>{item.title}</Text>
-                                    <Text style={globalStyles.text}>{item.duration}</Text>
-                                </View>
-                            </View>
+                            <Image
+                                source={exercise.thumbnail ? exercise.thumbnail : require('../../assets/images/placeholder.png')}
+                                style={{ width: wp(40), height: hp(15), borderRadius: 10, marginVertical: hp(5) }}
+                            />
+
+                            <Text style={[globalStyles.text, { marginTop: hp(5), marginHorizontal: wp(6), textAlign: 'center' }]}>Beschreibung:{"\n"}{exercise.description}</Text>
+
+                            <Text style={[globalStyles.text, { margin: hp(4), textAlign: 'center' }]}>Dauer: {exercise.duration}</Text>
                         </View>
                     </TouchableOpacity>
                 ))}
