@@ -2,10 +2,11 @@ import { useLocalSearchParams } from "expo-router";
 import { useState } from "react";
 import { View, Text, TextInput, Button } from "react-native";
 import { API_URL } from '../config';
+import { useRouter } from "expo-router";
 
 
 export default function passwordReset(){
-    
+    const router = useRouter();
     const { token } =useLocalSearchParams();
     const[newPassword, setNewPassword] = useState("");
 
@@ -20,6 +21,7 @@ export default function passwordReset(){
 
         if(res.ok){
             alert("Password wurde geändert!");
+            router.push("/login");
         } else {
             alert(data.error);
         }
