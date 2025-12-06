@@ -34,7 +34,7 @@ export default function Login() {
       });
 
       if(response.ok){
-        router.push("/(tabs)/settings");
+        router.push("/(tabs)");
       } else {
         alert("Login Fehlgeschlagen");
       }

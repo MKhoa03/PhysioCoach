@@ -2,6 +2,9 @@ import express from "express";
 import { ENV } from "./config/env.js";
 import { pool} from "./db.js";
 import cors from "cors";
+import nodemailer from "nodemailer";
+import crypto from "crypto";
+import bcrypt from "bcrypt";
 
 const app = express();
 const port = ENV.PORT || 3002;
@@ -61,7 +64,86 @@ app.post("/api/users/login", async (req, res) => {
     }
 });
 
+app.post("/api/users/request-password-reset", async (req, res) => {
+    const { email } = req.body;
 
+    try {
+    const result = await pool.query("SELECT * FROM users WHERE email = $1", [email]);
+    const users = result.rows;
+
+    if (users.length === 0) {
+        return res.json({ success: false, message: "Email nicht gefunden" });
+    }
+
+    const token = crypto.randomBytes(32).toString("hex");
+    const expires = new Date(Date.now() + 1000 * 60 * 15);
+
+    await pool.query(
+        "UPDATE users SET reset_token = $1, reset_token_expires = $2 WHERE email = $3",
+        [token, expires, email]
+    );
+
+    const url = `http://localhost:3000/resetpassword?token=${token}`;
+
+    await sendResetEmail(email, url);
+
+    res.json({ success: true, message: "Reset-Link wurde verschickt" });
+
+    } catch (err) {
+    console.error(err);
+    res.status(500).json({ success: false, message: "Serverfehler" });
+    }
+});
+
+
+app.post("/api/users/reset-password", async (req, res) => {
+    const { token, password } = req.body;
+
+    try {
+    const result = await pool.query(
+        "SELECT * FROM users WHERE reset_token = $1 AND reset_token_expires > NOW()",
+        [token]
+    );
+
+    if (result.rows.length === 0) {
+        return res.status(400).json({ error: "Token ungültig oder abgelaufen" });
+    }
+
+    const user = result.rows[0];
+
+    const hash = await bcrypt.hash(password, 10);
+
+    await pool.query(
+        "UPDATE users SET password=$1, reset_token=NULL, reset_token_expires=NULL WHERE id=$2",
+        [hash, user.id]
+    );
+
+    res.json({ success: true, message: "Passwort geändert" });
+    } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "Server Fehler" });
+    }
+});
+
+//Email
+const transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 587,
+    secure: false,
+    auth: {
+    user: ENV.EMAIL_USER,
+    pass: ENV.EMAIL_PASS,
+    },
+});
+
+async function sendResetEmail(to, url) {
+    await transporter.sendMail({
+    from: `"Physio App" <${ENV.EMAIL_USER}>`,
+    to,
+    subject: "Passwort zurücksetzen",
+    html: `<p>Klicke hier, um dein Passwort zurückzusetzen:</p><a href="${url}">${url}</a>`,
+    });
+}
 
 app.listen(port, () => {
     console.log(`Server läuft auf Port ${port}`);
