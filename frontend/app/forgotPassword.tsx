@@ -4,8 +4,11 @@ import { Ionicons } from '@expo/vector-icons';
 import { colors, fonts, globalStyles } from '../theme';
 import { wp, hp } from '../theme/responsive';
 import { API_URL } from '../config';
+import { useRouter } from "expo-router";
+
 
 export default function passwordForgotten() {
+  const router = useRouter();
   const [email, setEmail] = useState('');
   
   const handlePasswordReset = async() => {
@@ -24,7 +27,8 @@ export default function passwordForgotten() {
       const data = await res.json();
 
       if(data.success){
-        alert("Es wurde ein Link geschickt");
+        //das müsste weg in der zukunft, erstmal nur zum testen direkt push
+        router.push("/passwordReset");
       } else {
         alert("Die Mail existiert nicht");
       }

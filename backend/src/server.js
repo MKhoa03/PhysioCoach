@@ -77,15 +77,14 @@ app.post("/api/users/request-password-reset", async (req, res) => {
 
     const token = crypto.randomBytes(32).toString("hex");
     const expires = new Date(Date.now() + 1000 * 60 * 15);
+    const expiresISOString = expires.toISOString();
 
     await pool.query(
         "UPDATE users SET reset_token = $1, reset_token_expires = $2 WHERE email = $3",
-        [token, expires, email]
+        [token, expiresISOString, email]
     );
 
-    const url = `http://localhost:3000/resetpassword?token=${token}`;
-
-    await sendResetEmail(email, url);
+    await sendResetEmail(email, token);
 
     res.json({ success: true, message: "Reset-Link wurde verschickt" });
 
@@ -136,14 +135,18 @@ const transporter = nodemailer.createTransport({
     },
 });
 
-async function sendResetEmail(to, url) {
+export async function sendResetEmail(to, token) {
+    const webUrl = `http://192.168.0.134:3002/resetpassword?token=${token}`;
+
     await transporter.sendMail({
     from: `"Physio App" <${ENV.EMAIL_USER}>`,
     to,
     subject: "Passwort zurücksetzen",
-    html: `<p>Klicke hier, um dein Passwort zurückzusetzen:</p><a href="${url}">${url}</a>`,
+    html: `<p>Klicke hier, um dein Passwort zurückzusetzen:</p>
+            <a href="${webUrl}">Passwort zurücksetzen</a>`
     });
 }
+
 
 app.listen(port, () => {
     console.log(`Server läuft auf Port ${port}`);
