@@ -1,8 +1,9 @@
-import { ScrollView, Text, View } from "react-native";
+import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useLocalSearchParams } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router";
 import { globalStyles, colors } from "../theme";
 import { hp, wp } from "../theme/responsive";
+import { Ionicons } from "@expo/vector-icons";
 // import { Video, ResizeMode } from "expo-av"; <- später für Video
 
 export default function ExerciseDetail() {
@@ -11,6 +12,10 @@ export default function ExerciseDetail() {
   return (
     <SafeAreaView style={[globalStyles.container, { paddingHorizontal: wp(5) }]}>
       <ScrollView>
+
+        <TouchableOpacity onPress={() => router.back()} style={{ padding: wp(2), marginBottom: wp(3) }}>
+            <Ionicons name="arrow-back" size={28} color={colors.text.heading} />
+        </TouchableOpacity>
       
         {/* Titel */}
         <View style={[globalStyles.titleContainer, { marginTop: hp(2), alignItems: 'center' }]}>
@@ -37,7 +42,6 @@ export default function ExerciseDetail() {
         </View>
 
       </ScrollView>
-      <View style={{ height: 70, backgroundColor: colors.background }} />
     </SafeAreaView>
   );
 }

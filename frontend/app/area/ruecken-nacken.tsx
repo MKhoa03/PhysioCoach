@@ -4,6 +4,7 @@ import { globalStyles, colors } from "../../theme";
 import { exercises } from "../../data/exercises";
 import { useRouter } from "expo-router";
 import { wp, hp } from "../../theme/responsive";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function RueckenNacken() {
     
@@ -12,42 +13,53 @@ export default function RueckenNacken() {
 
     return (
         <SafeAreaView style={globalStyles.container}>
-            <ScrollView contentContainerStyle={{ paddingBottom: hp(18) }}>
+            <ScrollView contentContainerStyle={{ paddingBottom: hp(18), paddingHorizontal: wp(4) }}>
 
-                <Text style={[ globalStyles.title, {margin: wp(4), textAlign: 'center'} ]}>Ergebnisse für {"\n"} &quot;Rücken & Nacken&quot;</Text>
+                <TouchableOpacity onPress={() => router.back()} style={{ padding: wp(2), marginBottom: wp(3) }}>
+                    <Ionicons name="arrow-back" size={28} color={colors.text.heading} />
+                </TouchableOpacity>
+
+                <View style={{ alignItems: "center", marginBottom: hp(2) }}>
+                    <Text style={[globalStyles.title, { marginLeft: wp(2) }]}>Rücken & Nacken</Text>
+                </View>
 
                 {list.map((exercise) => (
                     <TouchableOpacity
                         key={exercise.id}
                         style={globalStyles.card}
                         onPress={() =>
-                        router.push({
-                            pathname: "/exerciseDetail",
-                            params: {
-                            title: exercise.title,
-                            duration: exercise.duration,
-                            thumbnail: exercise.thumbnail,
-                            description: exercise.description,
-                            },
-                        })
+                            router.push({
+                                pathname: "/exerciseDetail",
+                                params: {
+                                    title: exercise.title,
+                                    duration: exercise.duration,
+                                    thumbnail: exercise.thumbnail,
+                                    description: exercise.description,
+                                },
+                            })
                         }
                     >
-                        <View style={[globalStyles.cardForeground, { alignItems: 'center' }]}>
+                        <View style={[ globalStyles.cardForeground, { flex: 1, alignItems: "center", paddingVertical: hp(2) },]}>
+
                             <Text style={globalStyles.heading}>{exercise.title}</Text>
 
-                            <Image
-                                source={exercise.thumbnail ? exercise.thumbnail : require('../../assets/images/placeholder.png')}
-                                style={{ width: wp(40), height: hp(15), borderRadius: 10, marginVertical: hp(5) }}
-                            />
-
-                            <Text style={[globalStyles.text, { marginTop: hp(5), marginHorizontal: wp(6), textAlign: 'center' }]}>Beschreibung:{"\n"}{exercise.description}</Text>
-
-                            <Text style={[globalStyles.text, { margin: hp(4), textAlign: 'center' }]}>Dauer: {exercise.duration}</Text>
+                            <View style={{ flexDirection: 'row' }}>
+                                <Image
+                                    source={
+                                    exercise.thumbnail
+                                        ? exercise.thumbnail
+                                        : require("../../assets/images/placeholder.png")
+                                    }
+                                    style={{ width: wp(25), height: hp(10), borderRadius: 10, marginRight: wp(4) }}
+                                    resizeMode="cover"
+                                />
+                                <Text style={globalStyles.text}>Dauer: {exercise.duration}</Text>
+                            </View>
                         </View>
                     </TouchableOpacity>
                 ))}
+
             </ScrollView>
-            <View style={{ height: 70, backgroundColor: colors.background }} />
         </SafeAreaView>
     );
 }
