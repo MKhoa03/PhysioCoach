@@ -13,7 +13,7 @@ export default function ExerciseDetail() {
     <SafeAreaView style={[globalStyles.container, { paddingHorizontal: wp(5) }]}>
       <ScrollView>
 
-        <TouchableOpacity onPress={() => router.back()} style={{ padding: wp(2), marginBottom: wp(3) }}>
+        <TouchableOpacity onPress={() => router.back()} style={{ padding: wp(2) }}>
             <Ionicons name="arrow-back" size={28} color={colors.text.heading} />
         </TouchableOpacity>
       

@@ -18,10 +18,6 @@ export default function Favorites() {
   return (
     <SafeAreaView style={globalStyles.container}>
       <ScrollView contentContainerStyle={{ paddingBottom: hp(18), paddingHorizontal: wp(4) }}>
-        
-        <TouchableOpacity onPress={() => router.back()} style={{ padding: wp(2) }}>
-          <Ionicons name="arrow-back" size={28} color={colors.text.heading} />
-        </TouchableOpacity>
 
         <View style={{ alignItems: "center", marginBottom: hp(2) }}>
           <Text style={[globalStyles.title, { marginLeft: wp(2) }]}>Favoriten</Text>
