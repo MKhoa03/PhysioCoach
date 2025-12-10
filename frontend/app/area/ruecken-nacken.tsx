@@ -4,6 +4,7 @@ import { globalStyles, colors } from "../../theme";
 import { exercises } from "../../data/exercises";
 import { useRouter } from "expo-router";
 import { wp, hp } from "../../theme/responsive";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function RueckenNacken() {
     
@@ -13,6 +14,10 @@ export default function RueckenNacken() {
     return (
         <SafeAreaView style={globalStyles.container}>
             <ScrollView contentContainerStyle={{ paddingBottom: hp(18) }}>
+
+                <TouchableOpacity onPress={() => router.back()} style={{ padding: wp(2) }}>
+                    <Ionicons name="arrow-back" size={28} color={colors.text.heading} />
+                </TouchableOpacity>
 
                 <Text style={[ globalStyles.title, {margin: wp(4), textAlign: 'center'} ]}>Ergebnisse für {"\n"} &quot;Rücken & Nacken&quot;</Text>
 
@@ -32,17 +37,25 @@ export default function RueckenNacken() {
                         })
                         }
                     >
-                        <View style={[globalStyles.cardForeground, { alignItems: 'center' }]}>
-                            <Text style={globalStyles.heading}>{exercise.title}</Text>
-
+                        <View
+                            style={[
+                            globalStyles.cardForeground,
+                            { flexDirection: "row", alignItems: "center", paddingVertical: hp(2) },
+                            ]}
+                        >
                             <Image
-                                source={exercise.thumbnail ? exercise.thumbnail : require('../../assets/images/placeholder.png')}
-                                style={{ width: wp(40), height: hp(15), borderRadius: 10, marginVertical: hp(5) }}
+                            source={
+                                exercise.thumbnail
+                                ? exercise.thumbnail
+                                : require("../../assets/images/placeholder.png")
+                            }
+                            style={{ width: wp(25), height: hp(10), borderRadius: 10, marginRight: wp(4) }}
+                            resizeMode="cover"
                             />
-
-                            <Text style={[globalStyles.text, { marginTop: hp(5), marginHorizontal: wp(6), textAlign: 'center' }]}>Beschreibung:{"\n"}{exercise.description}</Text>
-
-                            <Text style={[globalStyles.text, { margin: hp(4), textAlign: 'center' }]}>Dauer: {exercise.duration}</Text>
+                            <View style={{ flex: 1 }}>
+                            <Text style={globalStyles.heading}>{exercise.title}</Text>
+                            <Text style={globalStyles.text}>Dauer: {exercise.duration}</Text>
+                            </View>
                         </View>
                     </TouchableOpacity>
                 ))}
