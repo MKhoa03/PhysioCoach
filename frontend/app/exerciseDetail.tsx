@@ -42,7 +42,6 @@ export default function ExerciseDetail() {
         </View>
 
       </ScrollView>
-      <View style={{ height: 70, backgroundColor: colors.background }} />
     </SafeAreaView>
   );
 }

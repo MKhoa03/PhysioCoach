@@ -13,7 +13,7 @@ export default function BeineKnie() {
 
     return (
         <SafeAreaView style={globalStyles.container}>
-            <ScrollView contentContainerStyle={{ paddingBottom: hp(18) }}>
+            <ScrollView contentContainerStyle={{ paddingBottom: hp(18), paddingHorizontal: wp(4) }}>
 
                 <TouchableOpacity onPress={() => router.back()} style={{ padding: wp(2) }}>
                     <Ionicons name="arrow-back" size={28} color={colors.text.heading} />
@@ -59,8 +59,9 @@ export default function BeineKnie() {
                         </View>
                     </TouchableOpacity>
                 ))}
+
+
             </ScrollView>
-            <View style={{ height: 70, backgroundColor: colors.background }} />
         </SafeAreaView>
     );
 }

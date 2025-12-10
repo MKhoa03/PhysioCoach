@@ -13,7 +13,7 @@ export default function SchulternArme() {
 
     return (
         <SafeAreaView style={globalStyles.container}>
-            <ScrollView contentContainerStyle={{ paddingBottom: hp(18) }}>
+            <ScrollView contentContainerStyle={{ paddingBottom: hp(18), paddingHorizontal: wp(4) }}>
 
                 <TouchableOpacity onPress={() => router.back()} style={{ padding: wp(2) }}>
                     <Ionicons name="arrow-back" size={28} color={colors.text.heading} />
@@ -26,15 +26,15 @@ export default function SchulternArme() {
                         key={exercise.id}
                         style={globalStyles.card}
                         onPress={() =>
-                        router.push({
-                            pathname: "/exerciseDetail",
-                            params: {
-                            title: exercise.title,
-                            duration: exercise.duration,
-                            thumbnail: exercise.thumbnail,
-                            description: exercise.description,
-                            },
-                        })
+                            router.push({
+                                pathname: "/exerciseDetail",
+                                params: {
+                                    title: exercise.title,
+                                    duration: exercise.duration,
+                                    thumbnail: exercise.thumbnail,
+                                    description: exercise.description,
+                                },
+                            })
                         }
                     >
                         <View
@@ -59,8 +59,8 @@ export default function SchulternArme() {
                         </View>
                     </TouchableOpacity>
                 ))}
+
             </ScrollView>
-            <View style={{ height: 70, backgroundColor: colors.background }} />
         </SafeAreaView>
     );
 }
