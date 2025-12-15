@@ -5,9 +5,21 @@ import cors from "cors";
 import nodemailer from "nodemailer";
 import crypto from "crypto";
 import bcrypt from "bcrypt";
+import path from "path";
+import { fileURLToPath } from "url";
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const app = express();
 const port = ENV.PORT || 3002;
+
+//video
+app.use("/videos", express.static(path.join(__dirname, "../videos")));
+
+app.get("/api/videoExercises", async (req, res) => {
+    const result = await pool.query("SELECT * FROM videoExercises");
+    res.json(result.rows);
+});
 
 
 //Datenbank verbindung
