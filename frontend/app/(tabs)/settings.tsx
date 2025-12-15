@@ -65,8 +65,8 @@ export default function Settings() {
           </View>
         </TouchableOpacity>
 
-        {/* IMPRESSUM & DATENSCHUTZ */}
-        <TouchableOpacity onPress={() => router.push({pathname: "/settings/legal"})}>
+        {/* IMPRESSUM */}
+        <TouchableOpacity onPress={() => router.push({pathname: "/settings/impressum"})}>
           <View style={globalStyles.card}>
             <View style={[{flexDirection: 'row'}]}>
               <Ionicons
@@ -75,9 +75,25 @@ export default function Settings() {
               color={colors.icon.decorative}
               style={{ marginLeft: wp(3), marginRight: wp(2) }}
               />
-              <Text style={globalStyles.heading}>Rechtliche Hinweise</Text>
+              <Text style={globalStyles.heading}>Impressum</Text>
             </View>
-          <Text style={[globalStyles.text, {fontSize: fonts.size.xs, textAlign: 'center'}]}>Impressum & Datenschutz</Text>
+          <Text style={[globalStyles.text, {fontSize: fonts.size.xs, textAlign: 'center'}]}>Details folgen...</Text>
+          </View>
+        </TouchableOpacity>
+
+        {/* DATENSCHUTZ */}
+        <TouchableOpacity onPress={() => router.push({pathname: "/settings/datenschutz"})}>
+          <View style={globalStyles.card}>
+            <View style={[{flexDirection: 'row'}]}>
+              <Ionicons
+              name="document-text"
+              size={25}
+              color={colors.icon.decorative}
+              style={{ marginLeft: wp(3), marginRight: wp(2) }}
+              />
+              <Text style={globalStyles.heading}>Datenschutz</Text>
+            </View>
+          <Text style={[globalStyles.text, {fontSize: fonts.size.xs, textAlign: 'center'}]}>Details folgen...</Text>
           </View>
         </TouchableOpacity>
 

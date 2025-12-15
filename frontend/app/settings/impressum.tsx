@@ -6,7 +6,7 @@ import { wp, hp } from '@/theme/responsive';
 import { router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-export default function Legal() {
+export default function Impressum() {
 
   return (
 
@@ -18,7 +18,7 @@ export default function Legal() {
             </TouchableOpacity>
 
             <View style={globalStyles.titleContainer}>
-                <Text style={globalStyles.title}>Rechtliche Hinweise</Text>
+                <Text style={globalStyles.title}>Impressum</Text>
             </View>
       
       </ScrollView>
