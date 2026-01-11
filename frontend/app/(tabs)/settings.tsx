@@ -77,7 +77,7 @@ export default function Settings() {
               />
               <Text style={globalStyles.heading}>Impressum</Text>
             </View>
-          <Text style={[globalStyles.text, {fontSize: fonts.size.xs, textAlign: 'center'}]}>Details folgen...</Text>
+          {/*<Text style={[globalStyles.text, {fontSize: fonts.size.xs, textAlign: 'center'}]}>Details folgen...</Text> */}
           </View>
         </TouchableOpacity>
 
@@ -93,7 +93,7 @@ export default function Settings() {
               />
               <Text style={globalStyles.heading}>Datenschutz</Text>
             </View>
-          <Text style={[globalStyles.text, {fontSize: fonts.size.xs, textAlign: 'center'}]}>Details folgen...</Text>
+          {/*<Text style={[globalStyles.text, {fontSize: fonts.size.xs, textAlign: 'center'}]}>Details folgen...</Text> */}
           </View>
         </TouchableOpacity>
 

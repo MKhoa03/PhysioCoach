@@ -20,7 +20,67 @@ export default function Notifications() {
             <View style={globalStyles.titleContainer}>
                 <Text style={globalStyles.title}>Benachrichtigungen</Text>
             </View>
-      
+
+          {/* OPTION 1 */}
+          <View style={globalStyles.card}>
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <Ionicons
+                name="notifications"
+                size={24}
+                color={colors.icon.decorative}
+                style={{ marginRight: wp(3) }}
+              />
+              <Text style={[globalStyles.text, { flex: 1 }]}>
+                Tägliche Erinnerung
+              </Text>
+              <Ionicons
+                name="toggle"
+                size={36}
+                color={colors.icon.interactive.inactive}
+              />
+            </View>
+          </View>
+
+          {/* OPTION 2 */}
+          <View style={globalStyles.card}>
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <Ionicons
+                name="time"
+                size={24}
+                color={colors.icon.decorative}
+                style={{ marginRight: wp(3) }}
+              />
+              <Text style={[globalStyles.text, { flex: 1 }]}>
+                Trainingszeit auswählen
+              </Text>
+              <Ionicons
+                name="chevron-forward"
+                size={22}
+                color={colors.text.body}
+              />
+            </View>
+          </View>
+
+          {/* OPTION 3 */}
+          <View style={globalStyles.card}>
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <Ionicons
+                name="checkmark-circle"
+                size={24}
+                color={colors.icon.decorative}
+                style={{ marginRight: wp(3) }}
+              />
+              <Text style={[globalStyles.text, { flex: 1 }]}>
+                Trainingsfortschritt
+              </Text>
+              <Ionicons
+                name="toggle"
+                size={36}
+                color={colors.icon.interactive.inactive}
+              />
+            </View>
+          </View>
+
       </ScrollView>
     </SafeAreaView>
     
