@@ -7,6 +7,9 @@ import { colors, fonts, globalStyles } from '../theme';
 import { wp, hp } from '../theme/responsive';
 import { API_URL } from "../config"; 
 
+const demoMail = "demo@physio.de";
+const demoPw = "physio123";
+
 
 
 export default function Login() {
@@ -17,7 +20,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
-  async function handleLogin() {
+  /*async function handleLogin() {
     if(!email || !password){
       alert("Bitte Email und Passwort eingeben!");
       return;
@@ -41,6 +44,18 @@ export default function Login() {
     } catch (err) {
       console.log(err);
       alert("Server nicht erreichbar");
+    }
+  }*/
+  function handleLogin() {
+    if (!email || !password) {
+      alert("Bitte Email und Passwort eingeben!");
+      return;
+    }
+
+    if (email === demoMail && password === demoPw) {
+      router.replace("/(tabs)");
+    } else {
+      alert("Falsche Zugangsdaten");
     }
   }
 
