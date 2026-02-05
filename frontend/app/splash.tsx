@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 import { globalStyles, colors, fonts } from '../theme';
 
 
-export default function Splash() { 
+export default function Splash() {
 
 const translateX = useRef(new Animated.Value(-100)).current;
 

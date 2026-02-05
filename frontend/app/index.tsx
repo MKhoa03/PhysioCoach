@@ -37,13 +37,6 @@ export default function Welcome() {
         <Text style={globalStyles.buttonText}>Registrieren</Text>
       </TouchableOpacity>
 
-      <Text
-        style={[globalStyles.text, { marginTop: 20, alignSelf: 'center' , color: colors.icon.interactive.active, fontSize: fonts.size.xs }]}
-        onPress={() => router.push('/(tabs)')}
-      >
-        Hier zum Dashboard
-      </Text>
-
     </View>
 
   );
