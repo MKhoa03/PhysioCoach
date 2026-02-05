@@ -34,8 +34,9 @@ export default function TabsLayout() {
           margin: 10,
           height: 80,
           position: 'absolute',
-          paddingHorizontal: 20,
-          paddingTop: 20
+          flexDirection: 'row',
+          justifyContent: 'space-around',
+          alignItems: 'center'
         },
         tabBarShowLabel: false,
         headerShown: false
