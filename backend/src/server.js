@@ -160,6 +160,6 @@ export async function sendResetEmail(to, token) {
 }
 
 
-app.listen(port, () => {
+app.listen(port, "0.0.0.0", () => {
     console.log(`Server läuft auf Port ${port}`);
 });
