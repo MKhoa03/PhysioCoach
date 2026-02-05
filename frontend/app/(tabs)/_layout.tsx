@@ -28,15 +28,18 @@ export default function TabsLayout() {
         tabBarActiveTintColor: colors.icon.interactive.active,
         tabBarInactiveTintColor: colors.icon.interactive.inactive,
         tabBarStyle: {
+          position: 'absolute',
+          bottom: 20,
+          left: 20,
+          right: 20,
+
           backgroundColor: colors.card.background,
           borderRadius: 60,
-          marginHorizontal: 20,
-          margin: 10,
           height: 80,
-          position: 'absolute',
+
           flexDirection: 'row',
-          justifyContent: 'space-around',
-          alignItems: 'center'
+          justifyContent: 'space-evenly',
+          alignItems: 'center',
         },
         tabBarShowLabel: false,
         headerShown: false
