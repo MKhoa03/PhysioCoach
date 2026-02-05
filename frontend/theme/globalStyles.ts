@@ -30,6 +30,7 @@ export const globalStyles = StyleSheet.create({
   /* ========= TYPOGRAPHY ========= */
 
   title: {
+    paddingTop: hp(10),
     fontFamily: fonts.family.heading,
     fontSize: fonts.size.xl,
     color: colors.text.heading,
